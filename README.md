@@ -26,15 +26,15 @@
   </tr> 
     <tr>
     <td>hive-metastore </td>
-    <td>bde2020/hive:2.3.2-postgresql-metastore</td>
+    <td> bde2020/hive:2.3.2-postgresql-metastore</td>
   </tr>
       <tr>
     <td>hive-metastore-postgresql  </td>
-    <td>shawnzhu/prestodb:0.181</td>
+    <td>bde2020/hive-metastore-postgresql:2.3.0</td>
   </tr>
        <tr>
     <td>presto-coordinator  </td>
-    <td></td>
+    <td> shawnzhu/prestodb:0.181</td>
   </tr>
 </table>
 
