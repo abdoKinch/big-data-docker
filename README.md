@@ -1,7 +1,7 @@
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/big-data-europe/Lobby)
 
 # Comparaison entre Apache Avro, ORC, Parquet en utilisant Hive, Spark SQL et Spark ML
-L’objectif principal de cet projet est faire une étude comparative entre les différent formats de fichiers (ORC, Avro, Parquet) ,soit au niveau de temps d’exécution ,soit au niveau de performance . Pour réaliser ce projet on va créer un cluster Docker qui contient le conteneur Docker de Apache Hive 2.3.2 et le conteneur de Apache Zeppelin 0.9.0 
+L’objectif principal de cet projet est faire une étude comparative entre les différent formats de fichiers (ORC, Avro, Parquet) ,soit au niveau de temps d’exécution ,soit au niveau de performance, ensuite on va utiliser Spark ML pour produire un tableau comparatif des performances d’un ensemble de ML . Pour réaliser ce projet on va créer un cluster Docker qui contient le conteneur Docker de Apache Hive 2.3.2 et le conteneur de Apache Zeppelin 0.9.0 
 
 # Docker Compos
 <table class="table-configuration">
