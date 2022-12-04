@@ -193,11 +193,14 @@ Apache Spark is supported in Zeppelin with Spark interpreter group which consist
 
 ## Connect Hive Interpreter With Spark in Apache Zeppelin
 
+To run a Spark application on the local/cluster, you need to set some configurations and parameters, that's what SparkConf helps. It provides configurations to run a Spark application.
+Initially, we will create a SparkConf object with SparkConf(), which will also load the values ​​of spark's Java system properties.*
+We can now set various parameters using the SparkConf object and their parameters will take precedence over system properties.
+The following code block contains the lines that define the basic configurations for connecting spark to hive.
 
-
-
-
-
+```
+  docker-compose up -d presto-coordinator
+```
 
 
 
