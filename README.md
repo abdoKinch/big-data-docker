@@ -57,22 +57,6 @@ To run Hive with postgresql metastore:
     docker-compose up -d
 ```
 
-To deploy in Docker Swarm:
-```
-    docker stack deploy -c docker-compose.yml hive
-```
-
-To run a PrestoDB 0.181 with Hive connector:
-
-```
-  docker-compose up -d presto-coordinator
-```
-
-This deploys a Presto server listens on port `8080`
-## Contributors
-* Ivan Ermilov [@earthquakesan](https://github.com/earthquakesan) (maintainer)
-* Yiannis Mouchakis [@gmouchakis](https://github.com/gmouchakis)
-* Ke Zhu [@shawnzhu](https://github.com/shawnzhu)
 
 
 
