@@ -1,6 +1,7 @@
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/big-data-europe/Lobby)
 
 # Comparaison entre Apache Avro, ORC, Parquet en utilisant Hive, Spark SQL et Spark ML
+L’objectif principal de cet projet est faire une étude comparative entre les différent formats de fichiers (ORC, Avro, Parquet) ,soit au niveau de temps d’exécution ,soit au niveau de performance . Pour réaliser ce projet on va créer un cluster Docker qui contient le conteneur Docker de Apache Hive 2.3.2 et le conteneur de Apache Zeppelin 0.9.0 
 
 # Docker Compos
 <table class="table-configuration">
@@ -42,7 +43,15 @@
 
 This repository contains [Apache Zeppelin 0.9.0](https://zeppelin.apache.org/) docker image, which is tuned to work with BDE clusters.
 
-# Hadoop Docker
+To clone this Github repository:
+```
+    git clone https://github.com/Khaoulamsis/zeppelin-hive-spark-docker-containers.git
+```
+
+Pour créer les conteneurs et les exécuter : 
+```
+    docker-compose up -d
+```
 
 
 # Hive 
@@ -104,6 +113,13 @@ See the example below of settings and dependencies.
     <td></td>
   </tr>
 </table>
+### Ajout des jars dans le conteneur Zeppelin
+```
+    docker exec -u root -it zeppelin-test bash
+    cd /opt/zeppelin/interpreter/jdbc
+    wget -c https://repo1.maven.org/maven2/org/apache/hive/hive-jdbc/2.3.2/hive-jdbc-2.3.2-standalone.jar  -O hive-jdbc-2.3.2-standalone.jar 
+    wget -c https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/2.6.0/hadoop-common-2.6.0.jar -O hadoop-common-2.6.0.jar
+```
 
 
 ### Configuration
@@ -218,8 +234,31 @@ Initially, we will create a SparkConf object with SparkConf(), which will also l
 We can now set various parameters using the SparkConf object and their parameters will take precedence over system properties.
 The following code block contains the lines that define the basic configurations for connecting spark to hive.
 
+
+Move a file from the local machine to a Docker container
+``` 
+docker cp fichier.csv 'identifiant du conteneur':/fichier.csv
 ```
-  docker-compose up -d presto-coordinator
+EXEMPLE
+```
+ %pyspark
+import time
+from pyspark import SparkContext,SparkConf
+from pyspark.sql import SparkSession
+
+appName= "hive_pyspark"
+
+conf=SparkConf()
+sc=SparkContext.getOrCreate(conf=conf)
+spark = SparkSession(sc).builder.appName(appName).config("hive.metastore.uris","thrift://hive-metastore:9083").enableHiveSupport().getOrCreate()
+
+r1=[]
+r2=[]
+r3=[]
+r4=[]
+r5=[]
+r6=[]
+datafile=spark.read.csv("/price_range.csv",header=True)
 ```
 
 
