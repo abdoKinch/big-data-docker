@@ -1,0 +1,1447 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "e%pyspark\r\nimport time\r\nfrom pyspark import SparkContext,SparkConf\r\nfrom pyspark.sql import SparkSession\r\n\r\nappName= \"hive_pyspark\"\r\n\r\nconf=SparkConf()\r\nsc=SparkContext.getOrCreate(conf=conf)\r\nspark = SparkSession(sc).builder.appName(appName).config(\"hive.metastore.uris\",\"thrift://hive-metastore:9083\").enableHiveSupport().getOrCreate()\r\n\r\nr1=[]\r\nr2=[]\r\nr3=[]\r\nr4=[]\r\nr5=[]\r\nr6=[]\r\n\r\ndatafile=spark.read.csv(\"/price_range.csv\",header=True)",
+      "user": "anonymous",
+      "dateUpdated": "2022-12-03T00:24:42+0000",
+      "progress": 100,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8fedebb3d18:4040/jobs/job?id=0",
+              "$$hashKey": "object:5520"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668802774379_454310111",
+      "id": "paragraph_1668802774379_454310111",
+      "dateCreated": "2022-11-18T20:19:34+0000",
+      "dateStarted": "2022-11-30T07:01:50+0000",
+      "dateFinished": "2022-11-30T07:04:37+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2801"
+    },
+    {
+      "text": "écriture",
+      "user": "anonymous",
+      "dateUpdated": "2022-12-03T00:25:02+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 3,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 20,
+        "results": {},
+        "enabled": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669725685371_327698770",
+      "id": "paragraph_1669725685371_327698770",
+      "dateCreated": "2022-11-29T12:41:25+0000",
+      "status": "READY",
+      "$$hashKey": "object:2802"
+    },
+    {
+      "text": "%pyspark\r\nstart=time.time()\r\ndatafile.write.format(\"parquet\").saveAsTable(\"price_range_parquet__\")\r\nend_write_parquet=time.time() - start\r\nprint(end_write_parquet)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:55:30+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668802815969_1345187907",
+      "id": "paragraph_1668802815969_1345187907",
+      "dateCreated": "2022-11-18T20:20:16+0000",
+      "dateStarted": "2022-11-30T00:55:30+0000",
+      "dateFinished": "2022-11-30T00:55:33+0000",
+      "status": "ERROR",
+      "$$hashKey": "object:2803"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndatafile.write.format(\"orc\").saveAsTable(\"price_range_orc\")\nend_write_orc=time.time() - start\nprint(end_write_orc)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:55:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669722433795_1663442477",
+      "id": "paragraph_1669722433795_1663442477",
+      "dateCreated": "2022-11-29T11:47:13+0000",
+      "dateStarted": "2022-11-30T00:55:48+0000",
+      "dateFinished": "2022-11-30T00:55:48+0000",
+      "status": "ERROR",
+      "$$hashKey": "object:2804"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndatafile.write.format(\"avro\").saveAsTable(\"price_range_avro\")\nend_write_avro=time.time() - start\nprint(end_write_avro)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-29T20:37:06+0000",
+      "progress": 100,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "11.340643882751465\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://a8fedebb3d18:4040/jobs/job?id=3",
+              "$$hashKey": "object:4053"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669722436818_136909471",
+      "id": "paragraph_1669722436818_136909471",
+      "dateCreated": "2022-11-29T11:47:16+0000",
+      "dateStarted": "2022-11-29T20:37:07+0000",
+      "dateFinished": "2022-11-29T20:37:19+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2805"
+    },
+    {
+      "text": "lecture",
+      "user": "anonymous",
+      "dateUpdated": "2022-12-03T00:25:15+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 3,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 20,
+        "results": {},
+        "enabled": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669725751494_788472219",
+      "id": "paragraph_1669725751494_788472219",
+      "dateCreated": "2022-11-29T12:42:31+0000",
+      "status": "READY",
+      "$$hashKey": "object:2806"
+    },
+    {
+      "title": "",
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select * from price_range_parquet__\")\nend_read_parquet=time.time() - start\nprint(end_read_parquet)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:55:59+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "title": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0.2285614013671875\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669420727861_2127440040",
+      "id": "paragraph_1669420727861_2127440040",
+      "dateCreated": "2022-11-25T23:58:47+0000",
+      "dateStarted": "2022-11-30T00:56:00+0000",
+      "dateFinished": "2022-11-30T00:56:00+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2807"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select * from price_range_orc\")\nend_read_orc=time.time() - start\nprint(end_read_orc)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-29T21:05:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0.8668091297149658\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669722427484_1706029433",
+      "id": "paragraph_1669722427484_1706029433",
+      "dateCreated": "2022-11-29T11:47:07+0000",
+      "dateStarted": "2022-11-29T21:05:51+0000",
+      "dateFinished": "2022-11-29T21:05:53+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2808"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select * from price_range_avro\")\nend_read_avro=time.time() - start\nprint(end_read_avro)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-29T21:05:55+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "2.464411973953247\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669721946710_1017995507",
+      "id": "paragraph_1669721946710_1017995507",
+      "dateCreated": "2022-11-29T11:39:06+0000",
+      "dateStarted": "2022-11-29T21:05:55+0000",
+      "dateFinished": "2022-11-29T21:05:59+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2809"
+    },
+    {
+      "text": "%pyspark\r\nimport numpy as np \r\nimport matplotlib.pyplot as plt",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T07:06:28+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669721968484_1208078594",
+      "id": "paragraph_1669721968484_1208078594",
+      "dateCreated": "2022-11-29T11:39:28+0000",
+      "dateStarted": "2022-11-30T07:06:28+0000",
+      "dateFinished": "2022-11-30T07:06:28+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2810"
+    },
+    {
+      "text": "%pyspark\n%matplotlib inline\nX = ['parquet','orc','avro']\nY = [end_write_parquet,end_write_orc,end_write_avro]\nZ = [end_read_parquet,end_read_orc,end_read_avro]\n  \nX_axis = np.arange(len(X))\n  \nplt.bar(X_axis - 0.2, Y, 0.4, label = 'écriture')\nplt.bar(X_axis + 0.2, Z, 0.4, label = 'lecture')\n  \nplt.xticks(X_axis, X)\nplt.xlabel(\"File formats\")\nplt.ylabel(\"temps\")\nplt.title(\"Comparaison du temps d'écriture et lecture des différents formats de fichiers sur Hive en utilisant spark sql\")\nplt.legend()\nplt.show()",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-29T21:06:08+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "IMG",
+            "data": "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TGvScHZ6kkbPLrvswmmnnTbk4R988EGmTp3K1KlTAZg7dy4TJ04cVpL50EMPMW7cuGHHKq2tPF0uSVKLs88+m2nTprHzzjvz5je/mYceeogf/OAH7Lrrruy0005Mn17uYzzuuOM48sgjmTFjBq973euYO3cu++23HwsXLuTkk0/mc5/7HDvvvDM//elPOfzww5k1a9bKeUycOBEoyehLXvISXv3qV/PsZz+bhx56iHe/+93stttu7Ljjjpxyyik9KQOpCR7JlCSpWrBgAeeeey6XXXYZ48eP561vfStnn302H/zgB7n00kvZeuutWbp06crh58+fz89+9jPWX3995s6dC0BfXx9HHXUUEydO5JhjjgHgq1/9atd5XnHFFVx33XVsvfXWnHrqqWy44YZceeWV3H///bzgBS9gxowZPq5IY5JJpiRJ1cUXX8z8+fPZbbfdALj33nu5/PLLedGLXrQy0Zs8efLK4Q844ADWX3/91ZrntGnTVk57zpw5XHvttSuPet51113ccMMNJpkak0wyJUmqMpOZM2fyyU9+cmW32bNnc95553UcfoMNNhjSdNdbbz0efvjhlfP4+9//3nEamcmJJ57IPvvsM5LwpbWK12RKklRNnz6dWbNmcfvttwOwdOlSdtppJy655BJuvPHGld0GM2nSJJYvX77ye19fH/Pnzwfgggsu4IEHHug43j777MNJJ520sv/vf/977r777tVaJqlXPJIpSVor9eLpC9tvvz0f//jHmTFjBg8//DDjx4/nS1/6EqeeeioHH3wwDz/8MJtuuikXXXTRgNPZf//9OeSQQ7jgggs48cQTOeKIIzjwwAOZNm0a06dP73oE9E1vehMLFy5k1113JTOZMmUK559//hpYUmnNi8zsdQzSKqZOnZrz5s0b8fg+wkgamxYsWMCznvWsXocxJnQqq4iYn5lTexSS9CieLpckSVLjTDIlSZLUOJNMSZIkNc4kU5IkSY0zyZQkSVLjTDIlSZLUOJ+TKUlaOx23YcPTu2vQQSZOnMiKFSuGPenzzz+fbbfdlu23334kkUnrJI9kSpK0ms4//3x+85vfDGucBx98cA1FI60dTDIlSerg05/+NLvtths77rgjH/nIR1Z2P+uss9hxxx3ZaaedOOyww/j5z3/O7Nmzefe7383OO+/MH//4R/bYYw/6Xypxxx130NfX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\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669722118787_1216554674",
+      "id": "paragraph_1669722118787_1216554674",
+      "dateCreated": "2022-11-29T11:41:58+0000",
+      "dateStarted": "2022-11-29T21:06:11+0000",
+      "dateFinished": "2022-11-29T21:06:25+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2811"
+    },
+    {
+      "text": "requetes sur une colonne",
+      "user": "anonymous",
+      "dateUpdated": "2022-12-03T00:25:32+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 5,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 20,
+        "results": {},
+        "enabled": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669722133489_1650884177",
+      "id": "paragraph_1669722133489_1650884177",
+      "dateCreated": "2022-11-29T11:42:13+0000",
+      "status": "READY",
+      "$$hashKey": "object:2812"
+    },
+    {
+      "title": "Parquet",
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:08:04+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669722261297_1594637305",
+      "id": "paragraph_1669722261297_1594637305",
+      "dateCreated": "2022-11-29T11:44:21+0000",
+      "dateStarted": "2022-11-30T00:04:45+0000",
+      "dateFinished": "2022-11-30T00:04:47+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2813"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select count(*) from price_range_parquet__\")\nend=time.time() -start\nr1.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:08+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669722282379_1057183650",
+      "id": "paragraph_1669722282379_1057183650",
+      "dateCreated": "2022-11-29T11:44:42+0000",
+      "dateStarted": "2022-11-30T00:56:08+0000",
+      "dateFinished": "2022-11-30T00:56:09+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2814"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select min(n_cores) from price_range_parquet__\")\nend=time.time() -start\nr1.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:10+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669419088440_1428960447",
+      "id": "paragraph_1669419088440_1428960447",
+      "dateCreated": "2022-11-25T23:31:28+0000",
+      "dateStarted": "2022-11-30T00:56:10+0000",
+      "dateFinished": "2022-11-30T00:56:11+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2815"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select max(n_cores) from price_range_parquet__\")\nend=time.time() -start\nr1.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:12+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669419177276_580641617",
+      "id": "paragraph_1669419177276_580641617",
+      "dateCreated": "2022-11-25T23:32:57+0000",
+      "dateStarted": "2022-11-30T00:56:12+0000",
+      "dateFinished": "2022-11-30T00:56:13+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2816"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select count(distinct ram) from price_range_parquet__\")\nend=time.time() -start\nr1.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:14+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669738445452_404746937",
+      "id": "paragraph_1669738445452_404746937",
+      "dateCreated": "2022-11-29T16:14:05+0000",
+      "dateStarted": "2022-11-30T00:56:14+0000",
+      "dateFinished": "2022-11-30T00:56:15+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2817"
+    },
+    {
+      "title": "Orc",
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:08:10+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669419180059_1141803545",
+      "id": "paragraph_1669419180059_1141803545",
+      "dateCreated": "2022-11-25T23:33:00+0000",
+      "dateStarted": "2022-11-30T00:04:57+0000",
+      "dateFinished": "2022-11-30T00:04:58+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2818"
+    },
+    {
+      "title": "read",
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select count(*) from price_range_orc\")\nend=time.time() -start\nr2.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:25+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "title": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669420857023_1344600419",
+      "id": "paragraph_1669420857023_1344600419",
+      "dateCreated": "2022-11-26T00:00:57+0000",
+      "dateStarted": "2022-11-30T00:56:25+0000",
+      "dateFinished": "2022-11-30T00:56:26+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2819"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select min(n_cores) from price_range_orc\")\nend=time.time() -start\nr2.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:31+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669419181088_212354903",
+      "id": "paragraph_1669419181088_212354903",
+      "dateCreated": "2022-11-25T23:33:01+0000",
+      "dateStarted": "2022-11-30T00:56:32+0000",
+      "dateFinished": "2022-11-30T00:56:32+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2820"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select max(n_cores) from price_range_orc\")\nend=time.time() -start\nr2.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:34+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669419182280_1653361501",
+      "id": "paragraph_1669419182280_1653361501",
+      "dateCreated": "2022-11-25T23:33:02+0000",
+      "dateStarted": "2022-11-30T00:56:34+0000",
+      "dateFinished": "2022-11-30T00:56:34+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2821"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select count(distinct ram) from price_range_orc\")\nend=time.time() -start\nr2.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:39+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669738713338_1179582472",
+      "id": "paragraph_1669738713338_1179582472",
+      "dateCreated": "2022-11-29T16:18:33+0000",
+      "dateStarted": "2022-11-30T00:56:39+0000",
+      "dateFinished": "2022-11-30T00:56:40+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2822"
+    },
+    {
+      "title": "Avro",
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:08:15+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669419183168_284245884",
+      "id": "paragraph_1669419183168_284245884",
+      "dateCreated": "2022-11-25T23:33:03+0000",
+      "dateStarted": "2022-11-30T00:05:09+0000",
+      "dateFinished": "2022-11-30T00:05:11+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2823"
+    },
+    {
+      "title": "SIZE",
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select count(*) from price_range_avro\")\nend=time.time() -start\nr3.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "title": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669462090339_1016573047",
+      "id": "paragraph_1669462090339_1016573047",
+      "dateCreated": "2022-11-26T11:28:10+0000",
+      "dateStarted": "2022-11-30T00:56:43+0000",
+      "dateFinished": "2022-11-30T00:56:43+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2824"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select min(n_cores) from price_range_avro\")\nend=time.time() -start\nr3.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:44+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669722374088_890708287",
+      "id": "paragraph_1669722374088_890708287",
+      "dateCreated": "2022-11-29T11:46:14+0000",
+      "dateStarted": "2022-11-30T00:56:44+0000",
+      "dateFinished": "2022-11-30T00:56:45+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2825"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select max(n_cores) from price_range_avro\")\nend=time.time() -start\nr3.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:50+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669420929186_48407301",
+      "id": "paragraph_1669420929186_48407301",
+      "dateCreated": "2022-11-26T00:02:09+0000",
+      "dateStarted": "2022-11-30T00:56:50+0000",
+      "dateFinished": "2022-11-30T00:56:51+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2826"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select count(distinct ram) from price_range_avro\")\nend=time.time() -start\nr3.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669738732003_1154781806",
+      "id": "paragraph_1669738732003_1154781806",
+      "dateCreated": "2022-11-29T16:18:52+0000",
+      "dateStarted": "2022-11-30T00:56:52+0000",
+      "dateFinished": "2022-11-30T00:56:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2827"
+    },
+    {
+      "title": "Visualisation",
+      "text": "%pyspark\n%matplotlib inline\nX = ['requete 1','requete 2','requete 3','requete 4']\n  \nX_axis = np.arange(len(X))\n  \nplt.bar(X_axis - 0.2, r1, 0.2, label = 'parquet')\nplt.bar(X_axis + 0.0, r2, 0.2, label = 'orc')\nplt.bar(X_axis +0.2, r3, 0.2, label = 'avro')\n\nplt.xticks(X_axis, X)\nplt.xlabel(\"les requetes\")\nplt.ylabel(\"temps d'exécution\")\nplt.title(\"Comparaison la performance différents formats de fichiers en interrogeant les tables dans hive en utilisant spark sql \")\nplt.legend()\nplt.show()",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T00:56:55+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "IMG",
+            "data": "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uKGT6TZIYsMNN/RVfLM2OKE2M7PVmpPp9rmNzNrmhNrMzMzMrAYeQ21mZpYNPvPWutY3+5z96lpfo02YMIFx48bRu3fvZodi1q04oTazLqceSU13S2TMOmPZsmWsuWb9TuUTJkzgyCOPdEJt1kEe8mFmZtZEs2fPZquttuLoo49m22235ZBDDmHJkiV897vfZYcddmDYsGGMGzeOiABgjz324KyzzmLMmDGcf/75TJ8+nREjRrDLLrtw2mmnMWzYMACuvPJKTjrppOXPs//++3P33XcDcOedd7LLLrswcuRIDj30UBYvXswFF1zAvHnz2HPPPdlzzz1XejuYdWdOqM3MzJps5syZjBs3jkceeYR1112Xiy66iJNOOompU6fy2GOP8frrr3PLLbcsX3/hwoXcc889nHrqqRx77LFccMEFTJ48uarnevHFFzn77LOZNGkSDz30EKNGjeK8887j5JNPZtNNN+Wuu+7irrvuatSmmq2SnFCbmZk12YABAxg9ejQARx55JPfddx933XUXO+20E8OHD+dPf/oTjz/++PL1DzvsMABeeeUVFi5cyJgxYwA46qij2n2uKVOm8MQTTzB69Gi22247rrrqKp599tkGbJXZ6sNjqM3MzJqs9LZ0kjjxxBOZNm0aAwYMYPz48a3uA92nTx8g/ehKpVvarbnmmrzzzjvLp1vKRwR77bUXEydOrPdmmK22fIXazMysyf7xj38sH7IxceJEdt11VwA22mgjFi9ezG9+85uy5dZff33WW2897rvvPgB+9atfLV82ePBgZsyYwTvvvMOcOXN48MEHAdh55525//77mTVrFgBLlizhb3/7GwB9+/Zl0aJFjdlIs1WYr1CbmZllzbo7zNChQ7nqqqv4/Oc/zxZbbMEXvvAFXn75ZYYPH87gwYPZYYcdKpa94oorOO644+jduzcf//jHl88fPXo0Q4YMYfjw4QwbNoyRI0cC0K9fP6688kqOOOII3njjDQDOPvtsPvShDzFu3Dj22WcfNtlkE4+jNusAtXxr2Gx1N2rUqJg2bVqzwzB82zxbeZ588kmGDh3a1Bhmz57N/vvvz2OPPdal6ipVrq0kTY+IUXV/MrNuxkM+zMzMzMxq4ITazMysiQYPHly3K8r1rMvMqueE2szMzMysBk6ozczMzMxq4ITazMzMzKwGTqjNzMzMzGrg+1Cb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\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669422085147_987835569",
+      "id": "paragraph_1669422085147_987835569",
+      "dateCreated": "2022-11-26T00:21:25+0000",
+      "dateStarted": "2022-11-30T00:56:55+0000",
+      "dateFinished": "2022-11-30T00:56:56+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2828"
+    },
+    {
+      "text": "requetes sur plusieurs colonnes",
+      "user": "anonymous",
+      "dateUpdated": "2022-12-03T00:26:01+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 6,
+        "fontSize": 20,
+        "enabled": false,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "4096\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669424741847_1935855213",
+      "id": "paragraph_1669424741847_1935855213",
+      "dateCreated": "2022-11-26T01:05:41+0000",
+      "dateStarted": "2022-11-26T11:29:31+0000",
+      "dateFinished": "2022-11-26T11:29:32+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2829"
+    },
+    {
+      "title": "Parquet",
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select price_range,max(battery_power) d from price_range_parquet__ where clock_speed between '1' and '2' group by price_range limit 5\")\nend=time.time() -start\nr4.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T07:04:57+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669742270347_840387184",
+      "id": "paragraph_1669742270347_840387184",
+      "dateCreated": "2022-11-29T17:17:50+0000",
+      "dateStarted": "2022-11-30T07:04:58+0000",
+      "dateFinished": "2022-11-30T07:05:34+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2830"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select price_range,max(battery_power) d from price_range_parquet__ where clock_speed between '2' and '3' group by price_range limit 5\")\nend=time.time() -start\nr5.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T07:05:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669742584499_569941276",
+      "id": "paragraph_1669742584499_569941276",
+      "dateCreated": "2022-11-29T17:23:04+0000",
+      "dateStarted": "2022-11-30T07:05:42+0000",
+      "dateFinished": "2022-11-30T07:05:44+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2831"
+    },
+    {
+      "title": "Orc",
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select price_range,max(battery_power) d from price_range_orc where clock_speed between '1' and '2' group by price_range limit 5\")\nend=time.time() -start\nr4.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T07:05:47+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669742581695_592933710",
+      "id": "paragraph_1669742581695_592933710",
+      "dateCreated": "2022-11-29T17:23:01+0000",
+      "dateStarted": "2022-11-30T07:05:47+0000",
+      "dateFinished": "2022-11-30T07:05:50+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2832"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select price_range,max(battery_power) d from price_range_orc where clock_speed between '2' and '3' group by price_range limit 5\")\nend=time.time() -start\nr5.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T07:05:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669742608285_280014019",
+      "id": "paragraph_1669742608285_280014019",
+      "dateCreated": "2022-11-29T17:23:28+0000",
+      "dateStarted": "2022-11-30T07:05:52+0000",
+      "dateFinished": "2022-11-30T07:05:54+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2833"
+    },
+    {
+      "title": "Avro",
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select price_range,max(battery_power) d from price_range_avro where clock_speed between '1' and '2' group by price_range limit 5\")\nend=time.time() -start\nr4.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T07:05:55+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669742610795_318778954",
+      "id": "paragraph_1669742610795_318778954",
+      "dateCreated": "2022-11-29T17:23:30+0000",
+      "dateStarted": "2022-11-30T07:05:56+0000",
+      "dateFinished": "2022-11-30T07:06:01+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2834"
+    },
+    {
+      "text": "%pyspark\nstart=time.time()\ndf=spark.sql(\"select price_range,max(battery_power) d from price_range_avro where clock_speed between '2' and '3' group by price_range limit 5\")\nend=time.time() -start\nr5.append(end)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T07:06:03+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669742612631_518468709",
+      "id": "paragraph_1669742612631_518468709",
+      "dateCreated": "2022-11-29T17:23:32+0000",
+      "dateStarted": "2022-11-30T07:06:04+0000",
+      "dateFinished": "2022-11-30T07:06:05+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2835"
+    },
+    {
+      "title": "Visualisation",
+      "text": "%pyspark\n%matplotlib inline\nX = ['parquet','orc','avro']\n  \nX_axis = np.arange(len(X))\n  \nplt.bar(X_axis - 0.2, r4, 0.4, label = 'requete 1')\nplt.bar(X_axis + 0.2, r5, 0.4, label = 'requete 2')\n\nplt.xticks(X_axis, X)\nplt.xlabel(\"les requetes\")\nplt.ylabel(\"temps d'exécution\")\nplt.title(\"Comparaison la performance différents formats de fichiers en interrogeant les tables dans hive en utilisant spark sql \")\nplt.legend()\nplt.show()",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-30T07:06:32+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "IMG",
+            "data": "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V7DTTjstnn744YfT2trKqFGjiAiGDRvGDTfcwCabbMKAAQPYdNNNGTNmDMcee2zVcpUOOOAAJk+ezJw5c1h33XU5/fTTOeyww3q9Tsz6C6UfmjOz0aNHR9u36bvKt80zaz7Tp09nxIgRZYfRZWPHjmXIkCGccMIJZYfSTrX6lDQ1IkaXFJJZ0/CQDzMzMzOzBnjIh5mZWRMZO3Zs2SGYWRe5h9rMzMzMrAFOqM3MzMzMGuCE2szMzMysAU6ozczMzMwa4C8lmpnZsmHsyj28vld7dn09oLW1lbvvvpsvfelLdS8zc+ZMDjroIJ5//nmWW245jjjiCI499thejNKs/3EPtZmZWS+LiMU/Id6bWltbueqqq7q0zIABAzj77LOZPn069957Lz/96U954okneilCs/7JCbWZmVkvaG1tZcSIERx11FGMGjWKmTNnctZZZ7HFFluwySabcNpppy0ue8YZZ7Dhhhuy8847c8ABBzB+/HgAdtxxR9p+cGrOnDm0tLQA8M4773DiiScuXtdFF10EwMknn8wdd9zByJEjOffcc2uWK1p77bUZNWoUAEOHDmXEiBE888wzvVk1Zv2Oh3yYmZn1kqeeeopLL72UCy64gEmTJjFjxgzuv/9+IoK99tqL22+/ncGDB3PNNdfw0EMPsWjRIkaNGsXmm2/e4XovvvhiVl55ZR544AHefPNNtt12W3bddVfGjRvH+PHjmThxIgATJkyoWm6DDTaout7W1lYeeughttpqqx6vC7P+zAm1mZlZLxk+fDhbb701AJMmTWLSpElsttlmAMyfP58ZM2Ywb9489tlnH1ZaaSUA9tprr07XO2nSJKZNm8Z1110HwKuvvsqMGTNYYYUV6ipXLaGeP38+n/vc5zjvvPN473vf2/2NNlsGOaE2MzPrJYMHD178OCI45ZRTOPLII9uVOe+885BUdfkBAwYsHnu9cOHCdus6//zz2W233dqVnzx5crvntcpVevvtt/nc5z7HgQceyL777tvpdplZex5DbWZmthTstttuXHLJJcyfPx+AZ555hhdffJEddtiB66+/njfeeIN58+Zx8803L16mpaWFqVOnAizuZW5b14UXXsjbb78NwNNPP82CBQsYOnQo8+bN67RcUURw2GGHMWLECI4//vje2Xizfs491GZmtmwo+TZ3u+66K9OnT2ebbbYBYMiQ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\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669741141378_1618932356",
+      "id": "paragraph_1669741141378_1618932356",
+      "dateCreated": "2022-11-29T16:59:01+0000",
+      "dateStarted": "2022-11-30T07:06:33+0000",
+      "dateFinished": "2022-11-30T07:06:36+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2836"
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-29T18:49:06+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1669747746369_1340773000",
+      "id": "paragraph_1669747746369_1340773000",
+      "dateCreated": "2022-11-29T18:49:06+0000",
+      "status": "READY",
+      "$$hashKey": "object:2837"
+    }
+  ],
+  "name": "Comparaison de performances des trois formats de fichiers parquet , orc et avro",
+  "id": "2HM711MVG",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Comparaison de performances des trois formats de fichiers parquet , orc et avro"
+}
