@@ -14,23 +14,23 @@
   </tr>
   <tr>
     <td>namenode</td>
-    <td></td>
+    <td>bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8</td>
   </tr>
   <tr>
     <td>datanode</td>
-    <td></td>
+    <td>bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8</td>
   </tr>
   <tr>
     <td>hive-server </td>
-    <td></td>
+    <td>bde2020/hive:2.3.2-postgresql-metastore</td>
   </tr> 
     <tr>
     <td>hive-metastore </td>
-    <td></td>
+    <td>bde2020/hive:2.3.2-postgresql-metastore</td>
   </tr>
       <tr>
     <td>hive-metastore-postgresql  </td>
-    <td></td>
+    <td>shawnzhu/prestodb:0.181</td>
   </tr>
        <tr>
     <td>presto-coordinator  </td>
