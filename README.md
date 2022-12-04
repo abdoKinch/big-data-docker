@@ -2,6 +2,42 @@
 
 # bigdata-docker
 
+# Docker Compos
+<table class="table-configuration">
+  <tr>
+    <th>Service</th>
+    <th>image</th>
+  </tr>
+  <tr>
+    <td>zeppelin</td>
+    <td>apache/zeppelin :0.9.0</td>
+  </tr>
+  <tr>
+    <td>namenode</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>datanode</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>hive-server </td>
+    <td></td>
+  </tr> 
+    <tr>
+    <td>hive-metastore </td>
+    <td></td>
+  </tr>
+      <tr>
+    <td>hive-metastore-postgresql  </td>
+    <td></td>
+  </tr>
+       <tr>
+    <td>presto-coordinator  </td>
+    <td></td>
+  </tr>
+</table>
+
 # Docker Zeppelin
 
 This repository contains [Apache Zeppelin 0.9.0](https://zeppelin.apache.org/) docker image, which is tuned to work with BDE clusters.
