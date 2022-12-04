@@ -113,7 +113,9 @@ See the example below of settings and dependencies.
     <td></td>
   </tr>
 </table>
-### Ajout des jars dans le conteneur Zeppelin
+
+### Adding jars in the Zeppelin container
+
 ```
     docker exec -u root -it zeppelin-test bash
     cd /opt/zeppelin/interpreter/jdbc
