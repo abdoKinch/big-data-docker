@@ -114,7 +114,7 @@ See the example below of settings and dependencies.
   </tr>
 </table>
 
-### Adding jars in the Zeppelin container  [hive-jdbc-2.3.2-standalone.jar ]( https://repo1.maven.org/maven2/org/apache/hive/hive-jdbc/2.3.2/hive-jdbc-2.3.2-standalone.jar) AND  [hadoop-common-2.6.0.jar](https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/2.6.0/hadoop-common-2.6.0.jar)
+### Adding jars in the Zeppelin container  [org.apache.hive:hive-jdbc:0.14.0.jar ]( https://repo1.maven.org/maven2/org/apache/hive/hive-jdbc/2.3.2/hive-jdbc-2.3.2-standalone.jar) AND  [org.apache.hadoop:hadoop-common:2.6.0.jar](https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/2.6.0/hadoop-common-2.6.0.jar)
 
 ```
     docker exec -u root -it zeppelin-test bash
