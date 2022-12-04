@@ -1,6 +1,6 @@
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/big-data-europe/Lobby)
 
-# bigdata-docker
+# Comparaison entre Apache Avro, ORC, Parquet en utilisant Hive, Spark SQL et Spark ML
 
 # Docker Compos
 <table class="table-configuration">
