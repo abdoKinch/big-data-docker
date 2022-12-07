@@ -45,7 +45,7 @@ This repository contains [Apache Zeppelin 0.9.0](https://zeppelin.apache.org/) d
 
 To clone this Github repository:
 ```
-    git clone https://github.com/Khaoulamsis/zeppelin-hive-spark-docker-containers.git
+    git clone https://github.com/abdoKinch/big-data-docker.git
 ```
 
 Pour créer les conteneurs et les exécuter : 
